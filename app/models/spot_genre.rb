@@ -1,0 +1,2 @@
+class SpotGenre < ApplicationRecord
+end
