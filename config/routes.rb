@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'homes/top'
-  get 'homes/about'
+
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
@@ -18,9 +17,9 @@ Rails.application.routes.draw do
     get 'homes/top'
     resources :spot_genres, only:[:index, :edit, :create, :update]
     resources :users, only: [:index, :show,]
-    get 'users/unsubscribe' => 'users#unsubscribe', as: 'admin_unsubscribe'
-    patch 'users/withdraw' => 'users#withdraw', as: 'admin_withdraw'
-    delete 'admin/post_comment/destroy' => 'admin/post_comments#destroy', as: 'admin_destroy_comment'
+    get 'users/unsubscribe' => 'users#unsubscribe'
+    patch 'users/withdraw' => 'users#withdraw'
+    delete 'post_comment/destroy' => 'post_comments#destroy'
   end
 
   scope module: :public do
@@ -30,7 +29,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
 
-    resources :posts, only: [:index,:create,:destroy,:update]
+    resources :posts, only: [:new,:index,:create,:destroy]
     post 'posts/my_post' => 'posts#show'
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
