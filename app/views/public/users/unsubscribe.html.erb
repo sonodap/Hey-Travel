@@ -1,2 +1,22 @@
-<h1>Public::Users#unsubscribe</h1>
-<p>Find me in app/views/public/users/unsubscribe.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-8">
+      <h2><strong>本当に退会しますか？</strong></h2>
+      <p>
+        退会すると、このアカウントを再度使用することができなくなります。<br>
+        今後またご利用される場合は再登録をする必要があります。<br>
+        退会する場合は、「退会する」をクリックしてください。<br>
+      </p>
+      <div class='row'>
+        <div class='col-md-2'></div>
+        <div class='col-md-4'>
+          <%= link_to "退会する", withdraw_path, method: :patch, class: "btn btn-primary" %>
+        </div>
+        <div class='col-md-4'>
+          <%= link_to "退会しない", user_path,class: "btn btn-danger" %>
+        </div>
+        <div class='col-md-2'></div>
+      </div>
+    </div>
+  </div>
+</div>
