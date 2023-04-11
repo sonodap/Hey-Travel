@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    post 'users/my_page' => 'users#show', as: 'user'
+    get 'users/my_page' => 'users#show', as: 'user'
     get 'users/information/edit' => 'users#edit', as: 'edit_user'
     patch 'users/information' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'

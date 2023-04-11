@@ -3,7 +3,7 @@
     <div class='col-md-12'>
       <div class='row text-center'>
         <h2>会員編集画面</h2>
-        <%= form_with model: @user, url: update_user, local: true do |f| %>
+        <%= form_with model: @user, url: update_user_path, local: true do |f| %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: "form-control name" %>
@@ -17,7 +17,7 @@
             <%= f.text_area :introduction, class: "form-control introduction" %>
           </div>
           <div class="form-group">
-            <%= f.submit "更新する" class: 'btn btn-secondary' %>
+            <%= f.submit "更新する", class: 'btn btn-secondary' %>
           </div>
         <% end %>
       </div>
