@@ -1,2 +1,25 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h2 class='pt-md-3'>旅の投稿</h2>
+      <%= form_with model: @post,url: posts_path, local:true do |f| %>
+        <div class="form-group pt-md-3">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title, class: 'form-control title' %>
+        </div>
+        <div class="form-group pt-md-2">
+          <%= f.label "写真選択" %>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <!--ジャンル選択-->
+        <div class="form-group">
+          <%= f.label "本文" %>
+          <%= f.text_area :post_text, class: 'form-control post_text' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "投稿する", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
