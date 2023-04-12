@@ -1,14 +1,21 @@
 class Public::PostsController < ApplicationController
-  
+
   before_action :authenticate_user!
-  
+
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user_id
+    @post.save
+    redirect_to posts_path
   end
 
   def index
+    @posts = Post.all
+    @user = current_user
   end
 
   def show
@@ -16,4 +23,12 @@ class Public::PostsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def post_params
+    # あとでジャンルも追加
+    params.require(:post).permit(:title, :image, :post_text)
+  end
+
 end

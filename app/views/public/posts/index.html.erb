@@ -1,2 +1,14 @@
-<h1>Public::Posts#imdex</h1>
-<p>Find me in app/views/public/posts/imdex.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'layouts/genre' %>
+    </div>
+    <div class='col-md-8 affset-md-1'>
+      <div class='row'><%= render 'public/users/info', user: @user %></div>
+      <div class='row'>
+        <h2>みんなの旅</h2>
+        <%= render 'public/posts/index', posts: @posts %>
+      </div>
+    </div>
+  </div>
+</div>
