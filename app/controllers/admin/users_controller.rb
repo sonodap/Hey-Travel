@@ -3,6 +3,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
+    @users = User.all.page params[:page]
   end
 
   def unsubscribe

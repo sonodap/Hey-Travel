@@ -8,8 +8,8 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user
-    @post.save
+    @post.user_id = current_user.id
+    @post.save!
     redirect_to posts_path
   end
 
@@ -28,7 +28,7 @@ class Public::PostsController < ApplicationController
 
   def post_params
     # あとでジャンルも追加
-    params.require(:post).permit(:title, :image, :post_text)
+    params.require(:post).permit(:title, :image, :post_text, :prefectures_genres)
   end
 
 end

@@ -3,7 +3,7 @@
     <tr>
       <td>
         <%= link_to user_path do %>
-          <%= image_tag user.get_image %>
+          <%= image_tag post.user.get_image(100,100) %>
         <% end %>
       </td>
       <td>
