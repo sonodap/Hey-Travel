@@ -1,5 +1,30 @@
 <div class='container'>
   <div class='row'>
-    
+    <div class='col-md-3'>
+      <%= render 'layouts/genre' %>
+    </div>
+    <div class='col-md-7 offset-md-1'>
+      <h2>旅の詳細</h2>
+      <div class='row'>
+        <tr>
+          <td>
+            <%= link_to user_path do %>
+              <%= image_tag user.get_image %>
+            <% end %>
+          </td>
+          <td><%= post.title %></td>
+          <td><%= post.created_at.strftime('%y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th><%= image_tag post.get_image %></th>
+          <th><%= post.post_text %></th>
+          <% if @post.user == current_user %>
+            <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+          <% end %>
+          <!--<td>いいね</td>-->
+          <!--<td>コメント件数</td>-->
+        </tr>
+      </div>
+    </div>
   </div>
 </div>

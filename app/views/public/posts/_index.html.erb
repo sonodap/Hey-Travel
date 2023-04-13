@@ -1,9 +1,19 @@
 <table class='table'>
-  <tr>
-    <td>
-      <%#= link_to(posts.user) do %>
-        <%#= posts.user.name %>
-      <%# end %>
-    </td>
-  </tr>
+  <% posts.each do |post| %>
+    <tr>
+      <td>
+        <%= link_to user_path do %>
+          <%= image_tag user.get_image %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to posts_my_post_path do %>
+          <%= post.title %>
+        <% end %>
+      </td>
+      <!--<td>いいね</td>-->
+      <!--<td>コメント件数</td>-->
+    </tr>
+  <% end %>
 </table>
+
