@@ -20,7 +20,7 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     user_path
   end
-  
+
   def after_sign_out_path_for(resource)
     root_path
   end
@@ -29,7 +29,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # 一度退会したアカウントは再利用できないようにする
   def reject_user
-    @user = User.find_by(name: params[:user][:name])
+    @user = User.find_by(email: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == false)
         flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"

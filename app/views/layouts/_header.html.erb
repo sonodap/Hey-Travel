@@ -13,7 +13,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
+          <% if admin_signed_in? %>
+            <li>
+              <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+                <p>会員一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_homes_top_path, class: 'nav-link text-light' do %>
+                <p>投稿一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+                <p>ログアウト</p>
+              <% end %>
+            </li>
+          <% elsif user_signed_in? %>
             <li>
               <%= link_to user_path, class: 'nav-link text-light' do %>
                 <i class="fas fa-user"></i> マイページ
@@ -52,6 +68,7 @@
             </li>
           <% end %>
         </ul>
+        <!--検索機能-->
       </div>
     </div>
   </nav>
