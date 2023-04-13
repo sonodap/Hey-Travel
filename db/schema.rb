@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
 
   create_table "posts", force: :cascade do |t|
     t.text "post_text", null: false
-    t.integer "prefectures_genres", null: false
+    t.integer "prefectures_genre", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

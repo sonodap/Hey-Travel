@@ -13,8 +13,9 @@
         </div>
         <!--ジャンル選択-->
         <div class='form-group'>
-          <%= f.label :prefectures_genres, "都道府県" %>
-          <%= f.select :prefectures_genres, Post.prefectures_genres_i18n.invert,{}, class: 'form-control' %>
+
+          <%= f.label :prefectures_genre, "都道府県" %>
+          <%= f.select :prefectures_genre, Post.prefectures_genres.keys.map {|k| [I18n.t("enums.post.prefectures_genre.#{k}"), k]} %>
           <!--スポットジャンル-->
         </div>
         <div class="form-group">
