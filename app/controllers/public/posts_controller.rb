@@ -19,6 +19,9 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = current_user.post
+    @post_comment = PostComment.new
+    @user = @post.user
   end
 
   def destroy
@@ -28,7 +31,7 @@ class Public::PostsController < ApplicationController
 
   def post_params
     # あとでジャンルも追加
-    params.require(:post).permit(:title, :image, :post_text, :prefectures_genres)
+    params.require(:post).permit(:title, :image, :post_text, :prefectures_genre)
   end
 
 end

@@ -7,12 +7,12 @@
         <% end %>
       </td>
       <td>
-        <%= link_to posts_my_post_path do %>
+        <%= link_to posts_travel_post_path do %>
           <%= post.title %>
         <% end %>
       </td>
       <!--<td>いいね</td>-->
-      <!--<td>コメント件数</td>-->
+      <td>コメント数:<%= post.post_comments.count %> </td>
     </tr>
   <% end %>
 </table>

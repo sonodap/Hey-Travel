@@ -23,14 +23,14 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get 'users/my_page' => 'users#show', as: 'user'
+    get 'users/user_page' => 'users#show', as: 'user'
     get 'users/information/edit' => 'users#edit', as: 'edit_user'
     patch 'users/information' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
 
     resources :posts, only: [:new,:index,:create,:destroy]
-    post 'posts/my_post' => 'posts#show'
+    get 'posts/travel_post' => 'posts#show'
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end

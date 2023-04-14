@@ -9,21 +9,37 @@
         <tr>
           <td>
             <%= link_to user_path do %>
-              <%= image_tag user.get_image %>
+              <%= image_tag @user.get_image %>
             <% end %>
           </td>
-          <td><%= post.title %></td>
-          <td><%= post.created_at.strftime('%y/%m/%d') %></td>
+          <td><%= @post.title %></td>
+          <td><%= @post.created_at.strftime('%y/%m/%d') %></td>
         </tr>
         <tr>
-          <th><%= image_tag post.get_image %></th>
-          <th><%= post.post_text %></th>
+          <th><%= image_tag @post.get_image %></th>
+          <th><%= @post.post_text %></th>
           <% if @post.user == current_user %>
             <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
           <!--<td>いいね</td>-->
-          <!--<td>コメント件数</td>-->
+          <td>
+            <p>コメント件数:<%= @post_comment.post_comments.count %></p>
+            <% @post.post_comments.each do |post_comment| %>
+              <%= image_tag.post_comment.user.get_image(50,50) %>
+              <%= post_comment.user.name %>
+              <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+              <%= if post_comment.user == current_user %>
+                <%= link_to "コメントを削除", post_commennt_path(post_comment.post, post_comment), method: :delete %>
+              <% end %>  
+            <% end %>
+          </td>
         </tr>
+      </div>
+      <div class='row pt-md-3'>
+        <%= form_with model: [@post,@post_comment] do |f| %>
+          <%= f.text_area :comment, rows: '4', placahorder: "コメントをここに" %>
+          <%= f.submit "送信する"%>
+        <% end %>
       </div>
     </div>
   </div>
