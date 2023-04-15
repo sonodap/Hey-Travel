@@ -55,24 +55,24 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "post_id"
-    t.integer "user_id"
+    t.string "post_id"
+    t.string "user_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
     t.string "post_comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "post_id"
-    t.integer "user_id"
+    t.string "post_id"
+    t.string "user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.text "post_text", null: false
     t.integer "prefectures_genre", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.string "user_id"
     t.integer "spot_genre_id"
     t.string "title", null: false
   end
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

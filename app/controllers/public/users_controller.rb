@@ -3,10 +3,15 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   # before_action :ensure_correct_user, only: [:edit,:update]
 
-  def show
-    @user = current_user
-    @posts = @user.posts
-  end
+   def mypage
+     @user = current_user
+     @posts = current_user.posts
+   end
+
+   def user_page
+     @user = User.find(params[:id])
+     @posts = @user.posts
+   end
 
   def edit
     @user = current_user
@@ -15,7 +20,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to user_path, notice: "会員情報が更新されました"
+      redirect_to mypage_path, notice: "会員情報が更新されました"
     else
       render :edit
     end

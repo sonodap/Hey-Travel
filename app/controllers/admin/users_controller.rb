@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+
   def show
     @posts = @user.posts
     @user = current_user

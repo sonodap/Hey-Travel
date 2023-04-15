@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'layouts/genre' %>
+    </div>
+    <div class='col-md-8 affset-md-1'>
+      <div class='row'><%= render 'info', user: @user %></div>
+      <div class='row'>
+        <h2>旅の記録</h2>
+        <%= render 'public/posts/travel_post', posts: @posts %>
+      </div>
+    </div>
+  </div>
+</div>
