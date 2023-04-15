@@ -8,7 +8,17 @@
           <%= f.submit post.title, class:"button-link" %>
         <% end %>
       </td>
-      <!--<td>いいね</td>-->
+      <td>
+        <% if post.favorited_by?(current_user) %>
+          <%= link_to favorites_path(post), method: :delete do %>
+            ♥<%= post.favorites.count %> いいね
+          <% end %>
+        <% else %>
+          <%= link_to favorites_path(post), method: :post do %>
+            ♥<%= post.favorites.count %> いいね
+          <% end %>
+        <% end %>
+      </td>
       <td>コメント数:<%= post.post_comments.count %> </td>
     </tr>
   <% end %>

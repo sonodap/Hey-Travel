@@ -12,6 +12,10 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 
   enum prefectures_genre: {
     hokkaido:0, aomori:1, iwate:2, miyagi:3, akita:4, yamagata:5, fukusima:6, ibaraki:7, tochigi:8, gunma:9, saitama:10, chiba:11, tokyo:12, kanagawa:13,

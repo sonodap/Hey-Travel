@@ -21,7 +21,7 @@
           <% if @post.user == current_user %>
             <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
-          <!--<td>いいね</td>-->
+          <td><%= render "public/favorites/favorite", post: @post %></td>
           <td>
             <p>コメント件数:<%= @post.post_comments.count %></p>
             <% @post.post_comments.each do |post_comment| %>
