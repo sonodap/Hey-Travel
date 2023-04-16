@@ -26,6 +26,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to admin_spot_genres_path, class: 'nav-link text-light' do %>
+                <p>ジャンル一覧</p>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
                 <p>ログアウト</p>
               <% end %>
