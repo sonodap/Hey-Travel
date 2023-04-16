@@ -27,7 +27,11 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    if params[:format]
+      @post = Post.find(params[:format])
+    else
+      @post = Post.find(params[:id])
+    end
     @post_comment = PostComment.new
     @user = @post.user
     @spot_genres = SpotGenre.all

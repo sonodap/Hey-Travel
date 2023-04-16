@@ -30,10 +30,13 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
 
-    resources :posts, only: [:new,:index,:create,:destroy]
+    resources :posts, only: [:new,:index,:create,:destroy] do
+      resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+    end
     get 'posts/travel_post' => 'posts#show'
-    resource :favorites, only: [:create, :destroy]
-    resources :post_comments, only: [:create, :destroy]
+
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
