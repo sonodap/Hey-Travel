@@ -6,11 +6,21 @@ class Public::UsersController < ApplicationController
    def mypage
      @user = current_user
      @posts = current_user.posts
+     @spot_genres = SpotGenre.all
+     if params[:spot_genre_id]
+       @spot_genre = SpotGenre.find(params[:spot_genre_id])
+       @posts = @spot_genre.posts.all
+    end
    end
 
    def user_page
      @user = User.find(params[:id])
      @posts = @user.posts
+     @spot_genres = SpotGenre.all
+     if params[:spot_genre_id]
+       @spot_genre = SpotGenre.find(params[:spot_genre_id])
+       @posts = @spot_genre.posts.all
+    end
    end
 
   def edit

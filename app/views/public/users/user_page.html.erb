@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
-      <%= render 'layouts/genre' %>
+      <%= render 'layouts/genre', spot_genres: @spot_genres %>
     </div>
     <div class='col-md-8 affset-md-1'>
       <div class='row'><%= render 'info', user: @user %></div>

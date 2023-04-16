@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top'
-    resources :spot_genres, only:[:index, :edit, :create, :update]
+    resources :spot_genres, only:[:index, :edit, :create, :update, :destroy]
     resources :users, only: [:index, :show,]
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get 'users/user_page' => 'users#user_page', as: 'user'
-    get "users/mypage" => "users/mypage", as: "mypage"
+    get 'users/mypage' => 'users/mypage', as: 'mypage'
     get 'users/information/edit' => 'users#edit', as: 'edit_user'
     patch 'users/information' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'

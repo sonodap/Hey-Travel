@@ -1,0 +1,20 @@
+<div class='card'>
+  <div class='card-header text-center'>
+    <h4>ジャンル検索</h4>
+  </div>
+  <div class='card-body'>
+    <%= form_with url: posts_path, local:true, method: :get do |f| %>
+        <div class='form-group'>
+          <%= f.label :prefectures_genre, "都道府県" %>
+          <%= f.select :prefectures_genre, Post.prefectures_genres.keys.map {|k| [I18n.t("enums.post.prefectures_genre.#{k}"), k]}, { selected: params[:prefectures_genre] } %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :spot_genre_id, "スポット" %>
+          <%= f.select :spot_genre_id, SpotGenre.pluck(:spot_genre, :id), { selected: params[:spot_genre_id] } %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "検索する", class: 'btn btn-success', name: nil %>
+        </div>
+      <% end %>
+  </div>
+</div>
