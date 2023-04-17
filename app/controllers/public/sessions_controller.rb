@@ -31,7 +31,7 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     root_path
   end
-  
+
   # 他ユーザーの編集をさせない
   # def ensure_correct_user
   #   @user = User.find(params[:id])
