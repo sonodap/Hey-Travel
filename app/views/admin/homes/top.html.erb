@@ -1,5 +1,4 @@
 <div class='container'>
-  <div class="text-center"><h5><strong><%= flash[:notice] %></strong></h5></div>
   <div class='row'>
     <div class='col-md-3 affset-md-1 '>
       <%= render 'layouts/genre', spot_genres: @spot_genres %>
@@ -9,6 +8,7 @@
         <h2>みんなの旅行</h2>
         <%= render 'index', posts: @posts %>
       </div>
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

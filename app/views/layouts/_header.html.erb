@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="/">
         <span>
           <%= link_to root_path do %>
-            <i class="fas fa-plane-departure"></i>
+            <h2><strong>Hey-Travel</strong></h2>
           <% end %>
         </span>
       </a>
@@ -43,12 +43,12 @@
             </li>
             <li>
               <%= link_to new_post_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-new-post"></i> 投稿する
+                <i class="fas fa-paper-plane"></i> 投稿する
               <% end %>
             </li>
             <li>
               <%= link_to posts_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-posts"></i> 投稿一覧
+                <i class="fas fa-suitcase"></i> 投稿一覧
               <% end %>
             </li>
             <li>
@@ -59,7 +59,7 @@
           <% else %>
             <li>
               <%= link_to home_about_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-link"></i> Hey-Travelとは
+                <i class="fas fa-book-reader"></i> Hey-Travelとは
               <% end %>
             </li>
             <li>
@@ -69,7 +69,7 @@
             </li>
             <li>
               <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-                 ログイン
+                 <i class="fas fa-sign-in-alt"></i> ログイン
               <% end %>
             </li>
           <% end %>

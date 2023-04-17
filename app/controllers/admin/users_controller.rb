@@ -1,13 +1,13 @@
 class Admin::UsersController < ApplicationController
 
   def show
-    @posts = @user.posts
+    @posts = @user.post.page(params[:page])
     @user = User.find(params[:id])
     @spot_genres = SpotGenre.all
   end
 
   def index
-    @users = User.all.page params[:page]
+    @users = User.page(params[:page])
   end
 
   def unsubscribe

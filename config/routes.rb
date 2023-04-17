@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'post_comment/destroy'
-  end
-  namespace :admin do
-    get 'post/show'
-  end
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
@@ -14,6 +8,7 @@ Rails.application.routes.draw do
      registrations: "public/registrations",
      sessions: 'public/sessions'
   }
+
   devise_scope :user do
     post 'users/guset_sgin_in' => "public/sessions#guest_sign_in"
   end
