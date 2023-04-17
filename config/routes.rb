@@ -14,6 +14,9 @@ Rails.application.routes.draw do
      registrations: "public/registrations",
      sessions: 'public/sessions'
   }
+  devise_scope :user do
+    post 'users/guset_sgin_in' => "public/sessions#guest_sign_in"
+  end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -25,9 +28,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show,]
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
-    get 'posts/show' => 'posts#show' 
+    get 'posts/show' => 'posts#show'
     delete 'post_comment/destroy' => 'post_comments#destroy'
-    
+
   end
 
   scope module: :public do
@@ -37,7 +40,6 @@ Rails.application.routes.draw do
     patch 'users/information' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
-    post 'users/guset_sgin_in', to: "users/sessions#guest_sign_in"
 
     resources :posts, only: [:new,:index,:create,:destroy] do
       resource :favorites, only: [:create, :destroy]

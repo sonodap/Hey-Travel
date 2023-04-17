@@ -6,6 +6,7 @@
     <div class='col-md-7 offset-md-1'>
       <h2>旅の詳細</h2>
       <div class='row'>
+        <table class='table'>
         <tr>
           <td>
             <%= link_to user_path do %>
@@ -21,7 +22,9 @@
           <% if @post.user == current_user %>
             <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
-          <td><%= render "public/favorites/favorite", post: @post %></td>
+          <td id="favorite_buttons_<%= @post.id %>">
+            <%= render "public/favorites/favorite", post: @post %>
+          </td>
           <td>
             <p>コメント件数:<%= @post.post_comments.count %></p>
             <% @post.post_comments.each do |post_comment| %>
@@ -34,9 +37,10 @@
             <% end %>
           </td>
         </tr>
+        </table>
       </div>
       <div class='row pt-md-3'>
-        <%= form_with model: @post_comment, url: post_post_comments_path, method: :post do |f| %>
+        <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post), method: :post do |f| %>
           <%= f.text_area :comment, rows: '4', placahorder: "コメントをここに" %>
           <%= f.submit "送信する"%>
         <% end %>

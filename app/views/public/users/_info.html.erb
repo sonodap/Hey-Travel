@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th>
-        <% if user.id == current_user.id %>
+        <% if user.id == current_user.id && user.name != "guestuser" %>
           <%= link_to "編集", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
         <% end %>
         <% if user.name != "guestuser" %>
