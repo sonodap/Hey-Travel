@@ -21,16 +21,8 @@
           <%= f.submit post.title, class:"button-link" %>
         <% end %>
       </td>
-      <td>
-        <% if post.favorited_by?(current_user) %>
-          <%= link_to post_favorites_path(post.id), method: :delete do %>
-            ♥<%= post.favorites.count %> いいね
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(post.id), method: :post do %>
-            ♥<%= post.favorites.count %> いいね
-          <% end %>
-        <% end %>
+      <td id="favorite_buttons_<%= post.id %>">
+        <%= render "public/favorites/favorite", post: post %>
       </td>
       <td>コメント数:<%= post.post_comments.count %></td>
     </tr>

@@ -1,2 +1,35 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'layouts/genre', spot_genres: @spot_genres %>
+    </div>
+    <div class='col-md-8 affset-md-1'>
+      <div class='row'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th style="height: 140px"><%= image_tag user.get_image(100,100) %></th>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td><%= user.name %></td>
+            </tr>
+            <tr>
+              <!--これ必要なければ消しても良い-->
+              <td>introduction</td>
+              <td><%= user.introduction %></td>
+            </tr>
+            <tr>
+              <th><%= link_to "退会", admin_users_unsubscribe_path, class: "btn btn-outline-denger btn-block" %></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class='row'>
+        <h2>旅の記録</h2>
+        <%= render 'admin/posts/show', posts: @posts %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'post_comment/destroy'
+  end
+  namespace :admin do
+    get 'post/show'
+  end
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
@@ -19,7 +25,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show,]
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
+    get 'posts/show' => 'posts#show' 
     delete 'post_comment/destroy' => 'post_comments#destroy'
+    
   end
 
   scope module: :public do
