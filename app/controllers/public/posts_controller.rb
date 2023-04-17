@@ -9,8 +9,13 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      flash[:notice] = "旅の投稿に成功しました！"
+      redirect_to posts_path
+    else
+      flash[:notice] = "投稿に失敗しました、投稿に必要な入力事項をもう一度確認してください"
+      render :new
+    end
   end
 
   def index

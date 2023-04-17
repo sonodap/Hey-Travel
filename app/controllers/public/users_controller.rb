@@ -31,8 +31,10 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to mypage_path, notice: "会員情報が更新されました"
+      flash[:notice] = "会員情報が更新されました"
+      redirect_to mypage_path
     else
+      flash[:notice] = "会員情報の更新に失敗しました"
       render :edit
     end
   end
@@ -44,6 +46,7 @@ class Public::UsersController < ApplicationController
     def withdraw
       @user = current_customer
       @user.update(is_deleted: true)
+      flash[:notice] =　"退会処理が完了しました。ご利用ありがとうございました"
       reset_session
       redirect_to root_path
     end
