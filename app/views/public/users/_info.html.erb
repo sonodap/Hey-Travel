@@ -15,7 +15,12 @@
     <tr>
       <th>
         <% if user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to "編集", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
+        <% end %>
+        <% if user.name != "guestuser" %>
+          <div class='row'>
+            <%= link_to '',edit_user_path,class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" %>
+          </div>
         <% end %>
       </th>
     </tr>

@@ -1,27 +1,28 @@
 class Public::UsersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
   # before_action :ensure_correct_user, only: [:edit,:update]
 
-   def mypage
-     @user = current_user
-     @posts = current_user.posts
-     @spot_genres = SpotGenre.all
-     if params[:spot_genre_id]
-       @spot_genre = SpotGenre.find(params[:spot_genre_id])
-       @posts = @spot_genre.posts.all
-    end
+  def mypage
+   @user = current_user
+   @posts = current_user.posts
+   @spot_genres = SpotGenre.all
+   if params[:spot_genre_id]
+     @spot_genre = SpotGenre.find(params[:spot_genre_id])
+     @posts = @spot_genre.posts.all
    end
+  end
 
-   def user_page
-     @user = User.find(params[:id])
-     @posts = @user.posts
-     @spot_genres = SpotGenre.all
-     if params[:spot_genre_id]
-       @spot_genre = SpotGenre.find(params[:spot_genre_id])
-       @posts = @spot_genre.posts.all
-    end
+  def user_page
+   @user = User.find(params[:id])
+   @posts = @user.posts
+   @spot_genres = SpotGenre.all
+   if params[:spot_genre_id]
+     @spot_genre = SpotGenre.find(params[:spot_genre_id])
+     @posts = @spot_genre.posts.all
    end
+  end
 
   def edit
     @user = current_user
@@ -53,10 +54,10 @@ class Public::UsersController < ApplicationController
   end
 
   # 他ユーザーの編集をさせない
-  # def ensure_correct_user
-  #   @user = User.find(params[:id])
-  #   unless @user == current_user
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
 end

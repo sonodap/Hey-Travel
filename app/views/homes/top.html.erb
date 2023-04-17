@@ -15,7 +15,7 @@
         </div>
         <div class='btn-wrapper col-md-3 mx-auto'>
           <div class='row'>
-            <!--ゲストログイン-->
+            <%= link_to "ゲストログイン（閲覧用）", users_guset_sgin_in_path, class: "btn btn-secondary btn-lg btn-block sign_in", method: :post %>
           </div>
           <div class='row my-md-3'>
             <%= link_to "新規登録", new_user_registration_path,class: "btn btn-success btn-lg btn-block sign_up" %>

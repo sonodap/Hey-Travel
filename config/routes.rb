@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     patch 'users/information' => 'users#update', as: 'update_user'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
+    post 'users/guset_sgin_in', to: "users/sessions#guest_sign_in"
 
     resources :posts, only: [:new,:index,:create,:destroy] do
       resource :favorites, only: [:create, :destroy]
