@@ -1,8 +1,8 @@
 class Public::UsersController < ApplicationController
 
   before_action :authenticate_user!
-  # before_action :ensure_guest_user, only: [:edit]
-  # before_action :ensure_correct_user, only: [:edit,:update]
+  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_correct_user, only: [:edit,:update]
 
   def mypage
    @user = current_user
@@ -31,8 +31,8 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "会員情報が更新されました"
-      redirect_to mypage_path
+      # flash[:notice] = "会員情報が更新されました"
+      redirect_to mypage_path, notice: "会員情報が更新されました"
     else
       flash[:notice] = "会員情報の更新に失敗しました"
       render :edit
@@ -52,6 +52,9 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  private
+  
+  
   def user_params
     params.require(:user).permit(:name, :introduction, :image, :gender)
   end
@@ -64,10 +67,10 @@ class Public::UsersController < ApplicationController
     end
   end
   
-  # def ensure_guest_user
-  #   @user = User.find(params[:id])
-  #   if @user.name == "guestuser"
-  #     redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
-  #   end
-  # end  
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
 end

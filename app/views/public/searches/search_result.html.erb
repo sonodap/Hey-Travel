@@ -1,0 +1,22 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>タイトル</th>
+    </tr>
+  </thead>
+  <tbody>
+    <h2>検索結果</h2>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to user_path(@post.user.id) do %>
+            <%= @post.user.name %>
+          <% end %>
+        </td>
+        <td><%= link_to @post.title, posts_travel_postpath(@post.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
       flash[:notice] = "旅の投稿に成功しました！"
       redirect_to posts_path
     else
-      flash[:notice] = "投稿に失敗しました、投稿に必要な入力事項をもう一度確認してください"
+      flash[:notice] = "投稿に失敗しました、必要入力事項をもう一度確認してください"
       render :new
     end
   end

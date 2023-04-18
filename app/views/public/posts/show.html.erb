@@ -4,46 +4,51 @@
       <%= render 'layouts/genre', spot_genres: @spot_genres %>
     </div>
     <div class='col-md-7 offset-md-1'>
-      <h2>旅の詳細</h2>
+      <div class='row py-md-3'>
+        <h2>
+          <%= link_to @post.user.name, user_path %>さんの旅の詳細
+        </h2>
+      </div>
       <div class='row'>
         <table class='table'>
-        <tr>
-          <td>
-            <%= link_to user_path do %>
-              <%= image_tag @user.get_image(50,50) %>
+          <tr>
+            <td><%= @post.created_at.strftime('%Y年%m月%d日') %></td>
+            <td><%= @post.title %></td>
+          </tr>
+          <tr>
+            <div class='row'>
+              <th><%= image_tag @post.get_image(100,100) %></th>
+            </div>
+            <th><%= @post.post_text %></th>
+            <% if @post.user == current_user %>
+              <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
             <% end %>
-          </td>
-          <td><%= @post.title %></td>
-          <td><%= @post.created_at.strftime('%Y年%m月%d日') %></td>
-        </tr>
-        <tr>
-          <th><%= image_tag @post.get_image(100,100) %></th>
-          <th><%= @post.post_text %></th>
-          <% if @post.user == current_user %>
-            <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
-          <% end %>
-          <td id="favorite_buttons_<%= @post.id %>">
-            <%= render "public/favorites/favorite", post: @post %>
-          </td>
-          <td>
-            <p>コメント件数:<%= @post.post_comments.count %></p>
-            <% @post.post_comments.each do |post_comment| %>
-              <%= image_tag.post_comment.user.get_image(50,50) %>
-              <%= post_comment.user.name %>
-              <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-              <% if post_comment.user == current_user %>
-                <%= link_to "コメントを削除", post_post_comments_path(post_comment.post, post_comment), method: :delete %>
+          </tr>
+          <tr>
+            <td id="favorite_buttons_<%= @post.id %>">
+              <%= render "public/favorites/favorite", post: @post %>
+            </td>
+            <td>
+              <p>コメント件数:<%= @post.post_comments.count %></p>
+              <% @post.post_comments.each do |post_comment| %>
+                <%= image_tag.post_comment.user.get_image(50,50) %>
+                <%= post_comment.user.name %>
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+                <% if post_comment.user == current_user %>
+                  <%= link_to "コメントを削除", post_post_comments_path(post_comment.post, post_comment), method: :delete %>
+                <% end %>
               <% end %>
-            <% end %>
-          </td>
-        </tr>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='row pt-md-3'>
+        <div class='col-md-6'>
         <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post), method: :post do |f| %>
-          <%= f.text_area :comment, rows: '4', placahorder: "コメントをここに" %>
+          <%= f.text_area :comment, rows: '3' %>
           <%= f.submit "送信する"%>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
