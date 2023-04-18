@@ -1,17 +1,27 @@
 <div class='container my-4'>
   <div class='row'>
     <div class='col-md-12'>
-      <h2>ジャンル一覧・追加</h2>
-      <%= form_with model: @spot_genre, url: admin_spot_genres_path, method: :post do |f| %>
-        <td><%= f.label :spot_genre_name, "ジャンル名", class: "mr-3" %></td>
-        <td><%= f.text_field :spot_genre, class: "mr-5" %></td>
-        <td><%= f.submit'新規登録',class: "btn btn-primary" %></td>
-      <% end %>
-      <th>ジャンル</th>
-      <% @spot_genres.each do |spot_genre| %>
-        <td><%= spot_genre.spot_genre %></td>
-        <td><%= link_to "編集する", edit_admin_spot_genre_path(spot_genre.id), class: "btn-success" %></td>
-      <% end %>
+      <h2 class='py-md-3'>ジャンル一覧・追加</h2>
+      <table>
+        <%= form_with model: @spot_genre, url: admin_spot_genres_path, method: :post do |f| %>
+          <td><%= f.label :spot_genre_name, "ジャンル名", class: "mr-3" %></td>
+          <td><%= f.text_field :spot_genre, class: "mr-5" %></td>
+          <td><%= f.submit'新規登録',class: "btn btn-primary" %></td>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class='row my-4'>
+    <div class='col-md-6'>
+      <h3 class='py-md-3'>登録されているジャンル</h3>
+      <table class='table'>
+        <% @spot_genres.each do |spot_genre| %>
+          <tr>
+            <td><%= spot_genre.spot_genre %></td>
+            <td><%= link_to "編集する", edit_admin_spot_genre_path(spot_genre.id), class: "btn btn-success btn-sm" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

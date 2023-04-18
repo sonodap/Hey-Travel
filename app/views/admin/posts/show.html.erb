@@ -1,36 +1,40 @@
-<!--<div class='container'>-->
-<!--  <div class='row'>-->
-<!--    <div class='col-md-3'>-->
-<!--      <%#= render 'layouts/genre', spot_genres: @spot_genres %>-->
-<!--    </div>-->
-<!--    <div class='col-md-7 offset-md-1'>-->
-<!--      <h2>旅の詳細</h2>-->
-      <div class='row'>
-        <tr>
-          <td><%= image_tag @user.get_image(50,50) %></td>
-          <td>
-            <%= link_to admin_user_path(@user.id) do %>
-              <%= @post.user.name %>
-            <% end %>
-          </td>
-          <td><%= @post.title %></td>
-          <td><%= @post.created_at.strftime('%Y年%m月%d日') %></td>
-        </tr>
-        <tr>
-          <th><%= image_tag @post.get_image(100,100) %></th>
-          <th><%= @post.post_text %></th>
-          <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
-          <td>
-            <p>コメント件数:<%= @post.post_comments.count %></p>
-            <% @post.post_comments.each do |post_comment| %>
-              <%= image_tag.post_comment.user.get_image(50,50) %>
-              <%= post_comment.user.name %>
-              <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-              <%= link_to "コメントを削除", admin_post_comment_destroy_path(post_comment.post, post_comment), method: :delete %>
-            <% end %>
-          </td>
-        </tr>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'layouts/genre', spot_genres: @spot_genres %>
+    </div>
+    <div class='col-md-7 offset-md-1'>
+      <div class='row py-md-3'>
+        <h2>
+          <%= link_to @post.user.name, admin_user_path(@post.user.id) %>さんの旅の詳細
+        </h2>
       </div>
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+      <div class='row'>
+        <table class='table'>
+          <tr>
+            <td><%= @post.created_at.strftime('%Y年%m月%d日') %></td>
+            <td><%= @post.title %></td>
+          </tr>
+          <tr>
+            <div class='row'>
+              <th><%= image_tag @post.get_image(100,100) %></th>
+            </div>
+            <th><%= @post.post_text %></th>
+            <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+          </tr>
+          <tr>
+            <td>
+              <p>コメント件数:<%= @post.post_comments.count %></p>
+              <% @post.post_comments.each do |post_comment| %>
+                <%= image_tag.post_comment.user.get_image(50,50) %>
+                <%= post_comment.user.name %>
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+                <%= link_to "コメントを削除", post_post_comments_path(post_comment.post, post_comment), method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

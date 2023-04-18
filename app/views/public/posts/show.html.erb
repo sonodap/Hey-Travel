@@ -44,10 +44,12 @@
       </div>
       <div class='row pt-md-3'>
         <div class='col-md-6'>
-        <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post), method: :post do |f| %>
-          <%= f.text_area :comment, rows: '3' %>
-          <%= f.submit "送信する"%>
-        <% end %>
+        <%# if user.id == current_user.id && user.name != "guestuser" %>
+          <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post), method: :post do |f| %>
+            <%= f.text_area :comment, rows: '3' %>
+            <%= f.submit "送信する"%>
+          <% end %>
+        <%# end %>
         </div>
       </div>
     </div>

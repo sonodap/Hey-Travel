@@ -20,23 +20,35 @@
               <td><%= @user.introduction %></td>
             </tr>
             <tr>
-              <th><%= link_to "退会", admin_users_unsubscribe_path, class: "btn btn-outline-denger btn-block" %></th>
+              <th><%= link_to "退会処理", admin_users_unsubscribe_path(@user.id), class: "btn btn-danger" %></th>
             </tr>
           </thead>
         </table>
       </div>
       <div class='row'>
         <h2>旅の記録</h2>
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
-            <td>
-              <%= link_to admin_posts_show_path(id: post.id) do %>
-                <%= post.title %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>タイトル</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
+                <td>
+                  <%= link_to admin_posts_show_path(id: post.id) do %>
+                    <%= post.title %>
+                  <% end %>
+                </td>
+                <td>コメント数:<%= post.post_comments.count %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
       <%= paginate @posts %>
     </div>
