@@ -42,11 +42,13 @@
                 <i class="fas fa-user"></i> マイページ
               <% end %>
             </li>
-            <li>
-              <%= link_to new_post_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-paper-plane"></i> 投稿する
-              <% end %>
-            </li>
+            <% if current_user.email != 'guest@example.com' %>
+              <li>
+                <%= link_to new_post_path, class: 'nav-link text-light' do %>
+                  <i class="fas fa-paper-plane"></i> 投稿する
+                <% end %>
+              </li>
+            <% end %>
             <li>
               <%= link_to posts_path, class: 'nav-link text-light' do %>
                 <i class="fas fa-suitcase"></i> 投稿一覧

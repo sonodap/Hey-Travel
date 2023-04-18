@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
+  def ensure_guest_user
+    if current_user.name == "guestuser"
+      redirect_to mypage_path, notice: 'ゲストユーザーでは操作できません'
+    end
+  end
+
 end

@@ -18,7 +18,9 @@
           <%= link_to "プロフィールを編集する", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
         <% end %>
       </td>
-      <td></td>
+      <td>
+        <%= link_to "いいね一覧", user_favorites_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+      </td>
     </tr>
   </thead>
 </table>

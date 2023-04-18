@@ -1,16 +1,16 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <%= render 'layouts/genre', spot_genres: @spot_genres %>
-    </div>
-    <div class='col-md-7 offset-md-1'>
-      <h2>旅の詳細</h2>
+<!--<div class='container'>-->
+<!--  <div class='row'>-->
+<!--    <div class='col-md-3'>-->
+<!--      <%#= render 'layouts/genre', spot_genres: @spot_genres %>-->
+<!--    </div>-->
+<!--    <div class='col-md-7 offset-md-1'>-->
+<!--      <h2>旅の詳細</h2>-->
       <div class='row'>
         <tr>
           <td><%= image_tag @user.get_image(50,50) %></td>
           <td>
-            <%= link_to admin_user_path do %>
-              <%= @post.name %>
+            <%= link_to admin_user_path(@user.id) do %>
+              <%= @post.user.name %>
             <% end %>
           </td>
           <td><%= @post.title %></td>
@@ -31,6 +31,6 @@
           </td>
         </tr>
       </div>
-    </div>
-  </div>
-</div>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

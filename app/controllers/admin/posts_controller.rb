@@ -1,6 +1,7 @@
-class Admin::PostController < ApplicationController
+class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
     @spot_genres = SpotGenre.all
   end
 

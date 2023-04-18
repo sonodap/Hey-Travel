@@ -1,8 +1,8 @@
 class Admin::UsersController < ApplicationController
 
   def show
-    @posts = @user.post.page(params[:page])
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page])
     @spot_genres = SpotGenre.all
   end
 

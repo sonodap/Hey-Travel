@@ -2,7 +2,6 @@ class Public::UsersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :ensure_guest_user, only: [:edit]
-  before_action :ensure_correct_user, only: [:edit,:update]
 
   def mypage
    @user = current_user
@@ -12,6 +11,14 @@ class Public::UsersController < ApplicationController
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
      @posts = @spot_genre.posts.all
    end
+  end
+
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
+    @posts = Post.find(favorites)
+    @user = current_user
+    @spot_genres = SpotGenre.all
   end
 
   def user_page
@@ -53,24 +60,15 @@ class Public::UsersController < ApplicationController
   end
 
   private
-  
-  
+
+
   def user_params
     params.require(:user).permit(:name, :introduction, :image, :gender)
   end
 
-  # 他ユーザーの編集をさせない
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
+  def ensure_guest_user
+    if current_user.name == "guestuser"
+      redirect_to mypage_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
-  
-  def ensure_guest_user
-    @user = User.find(params[:id])
-    if @user.name == "guestuser"
-      redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
-    end
-  end  
 end

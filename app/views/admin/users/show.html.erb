@@ -8,16 +8,16 @@
         <table class='table'>
           <thead>
             <tr>
-              <th style="height: 140px"><%= image_tag user.get_image(100,100) %></th>
+              <th style="height: 140px"><%= image_tag @user.get_image(100,100) %></th>
             </tr>
             <tr>
               <td>name</td>
-              <td><%= user.name %></td>
+              <td><%= @user.name %></td>
             </tr>
             <tr>
               <!--これ必要なければ消しても良い-->
               <td>introduction</td>
-              <td><%= user.introduction %></td>
+              <td><%= @user.introduction %></td>
             </tr>
             <tr>
               <th><%= link_to "退会", admin_users_unsubscribe_path, class: "btn btn-outline-denger btn-block" %></th>
@@ -27,7 +27,16 @@
       </div>
       <div class='row'>
         <h2>旅の記録</h2>
-        <%= render 'admin/posts/show', posts: @posts %>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
+            <td>
+              <%= link_to admin_posts_show_path(id: post.id) do %>
+                <%= post.title %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       </div>
       <%= paginate @posts %>
     </div>
