@@ -3,8 +3,6 @@ class Public::SearchesController < ApplicationController
 
   def search
     @range = params[:range]
-    # if @range == "User"
-      @posts = Post.looks(params[:word])
-    # end
+    @posts = Post.includes(:user).where(users: {is_deleted: false}).page(params[:page])
   end
 end

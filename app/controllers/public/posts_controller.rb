@@ -20,7 +20,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).where(users: {is_deleted: false}).page(params[:page])
+    # @posts = Post.all
     @user = current_user
     @spot_genres = SpotGenre.all
     if params[:spot_genre_id]
