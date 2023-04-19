@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
-  get "search" => "searches#search"
 
   devise_for :users,skip: [:passwords], controllers:{
      registrations: "public/registrations",
@@ -20,10 +19,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
     resources :spot_genres, only:[:index, :edit, :create, :update, :destroy]
-    resources :users, only: [:index, :show,]
     get 'users/unsubscribe' => 'users#unsubscribe'
-    patch 'users/withdraw' => 'users#withdraw'
+    resources :users, only: [:index, :show,]
     get 'posts/show' => 'posts#show'
+    resources :posts, only: [:destroy]
+    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
     delete 'post_comment/destroy' => 'post_comments#destroy'
 
   end
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
     get "users/:id/favorites" => "users#favorites",as: "user_favorites"
+    get "search" => "searches#search"
 
     resources :posts, only: [:new,:index,:create,:destroy] do
       resource :favorites, only: [:create, :destroy]

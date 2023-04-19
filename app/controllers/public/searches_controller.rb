@@ -3,8 +3,8 @@ class Public::SearchesController < ApplicationController
 
   def search
     @range = params[:range]
-    if @range == "User"
-      @posts = Pook.looks(params[:search], params[:word])
-    end
+    # if @range == "User"
+      @posts = Post.looks(params[:word])
+    # end
   end
 end

@@ -20,7 +20,7 @@
               <td><%= @user.introduction %></td>
             </tr>
             <tr>
-              <th><%= link_to "退会処理", admin_users_unsubscribe_path(@user.id), class: "btn btn-danger" %></th>
+              <th><%= link_to "退会処理", admin_users_unsubscribe_path(id: @user.id),class: "btn btn-danger" %></th>
             </tr>
           </thead>
         </table>

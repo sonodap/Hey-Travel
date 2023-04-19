@@ -17,9 +17,9 @@ class Post < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def self.looks(search, word)
-    if search == "partial_match"
-      @post = Post.where("title LIKE?","%#{word}%")
+  def self.looks(word)
+    if word.present?
+      @post = Post.where("title LIKE?","%#{word}%").or(Post.where("post_text LIKE?","%#{word}%"))
     else
       @post = Post.all
     end

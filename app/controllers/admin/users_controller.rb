@@ -12,12 +12,12 @@ class Admin::UsersController < ApplicationController
 
   def unsubscribe
     @user = User.find(params[:id])
-    @user.update(is_deleted: true)
-    flash[:notice] =　"退会処理が完了しました。"
-    reset_session
-    redirect_to admin_homes_top_path
   end
 
   def withdraw
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    flash[:notice] = "退会処理が完了しました。"
+    redirect_to admin_homes_top_path
   end
 end

@@ -50,20 +50,18 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
-    def withdraw
       @user = current_user
       @user.update(is_deleted: true)
       flash[:notice] =　"退会処理が完了しました。ご利用ありがとうございました"
       reset_session
       redirect_to root_path
-    end
   end
 
   private
 
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :image, :gender)
+    params.require(:user).permit(:name, :introduction, :get_image, :gender)
   end
 
   def ensure_guest_user

@@ -20,16 +20,16 @@
               <th><%= image_tag @post.get_image(100,100) %></th>
             </div>
             <th><%= @post.post_text %></th>
-            <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+            <td><%= link_to "投稿を削除", admin_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           </tr>
           <tr>
             <td>
               <p>コメント件数:<%= @post.post_comments.count %></p>
               <% @post.post_comments.each do |post_comment| %>
-                <%= image_tag.post_comment.user.get_image(50,50) %>
+                <%= image_tag post_comment.user.get_image(50,50) %>
                 <%= post_comment.user.name %>
-                <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-                <%= link_to "コメントを削除", post_post_comments_path(post_comment.post, post_comment), method: :delete %>
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.post_comment %>
+                <%= link_to "コメントを削除", admin_post_comment_destroy_path(post_comment.post, post_comment), method: :delete %>
               <% end %>
             </td>
           </tr>

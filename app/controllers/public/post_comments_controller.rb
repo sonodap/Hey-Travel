@@ -4,10 +4,10 @@ class Public::PostCommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    comment = current_user post.new(post_comment_params)
-    comment.post_id = post.id
+    comment = current_user.post_comments.new(post_comment_params)
+    comment.post_id = @post.id
     comment.save
-    redirect_to posts_travel_post_path(post)
+    redirect_to posts_travel_post_path(@post)
   end
 
   def destroy
@@ -18,7 +18,7 @@ class Public::PostCommentsController < ApplicationController
   private
 
   def post_comment_params
-    params.require(:post_comments).permit(:post_comment)
+    params.require(:post_comment).permit(:post_comment)
   end
 
 end
