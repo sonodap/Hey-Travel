@@ -1,12 +1,12 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-3 affset-md-1 '>
+    <div class='col-md-3 affset-md-1 d-flex align-items-center'>
       <%= render 'layouts/genre', spot_genres: @spot_genres %>
     </div>
     <div class=' col-md-8 '>
       <div class='row'><%= render 'public/users/info', user: @user %></div>
       <div class='row'>
-        <h2>みんなの旅行</h2>
+        <h2>いいねした投稿</h2>
         <%= render 'public/posts/index', posts: @posts %>
       </div>
     </div>
