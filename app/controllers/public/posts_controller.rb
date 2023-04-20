@@ -21,7 +21,6 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).where(users: {is_deleted: false}).page(params[:page])
-    # @posts = Post.all
     @user = current_user
     @spot_genres = SpotGenre.all
     if params[:spot_genre_id]

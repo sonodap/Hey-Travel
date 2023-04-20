@@ -45,7 +45,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :gender])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
 

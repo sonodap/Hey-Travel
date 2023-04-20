@@ -6,7 +6,7 @@
     <div class='col-md-7'>
       <div class='row py-md-3'>
         <h2>
-          <%= link_to @post.user.name, user_path %>さんの旅の詳細
+          <%= link_to @post.user.name, user_path(id: @user.id) %>さんの旅の詳細
         </h2>
       </div>
       <div class='row'>
@@ -21,7 +21,7 @@
             </div>
             <th><%= @post.post_text %></th>
             <% if @post.user == current_user %>
-              <td><%= link_to "投稿を削除", @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+              <td><%= link_to "投稿を削除", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
             <% end %>
           </tr>
           <tr>

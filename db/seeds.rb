@@ -20,7 +20,6 @@ Admin.create!(
 
 user = User.create!(
   name: '山田　一郎',
-  gender: '男',
   email: 'user@com',
   password: 'travel'
 )

@@ -15,7 +15,7 @@
     <tr>
       <% if user.id == current_user.id && user.name != "guestuser" %>
         <td>
-          <%= link_to "プロフィールを編集する", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to "会員情報を編集する", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
         </td>
         <td>
           <%= link_to "いいね一覧", user_favorites_path(current_user), class: "btn btn-outline-secondary btn-block" %>
