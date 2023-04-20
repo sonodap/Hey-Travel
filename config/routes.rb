@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get 'posts/show' => 'posts#show'
     resources :posts, only: [:destroy]
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
-    delete 'post_comment/destroy' => 'post_comments#destroy'
+    delete 'post_comment/destroy/:post_id/:id' => 'post_comments#destroy', as: 'post_comment_destroy'
 
   end
 
