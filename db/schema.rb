@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_id"
-    t.integer "spot_genre_id"
     t.string "title", null: false
+    t.integer "spot_genre_id"
   end
 
   create_table "spot_genres", force: :cascade do |t|
