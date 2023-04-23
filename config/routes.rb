@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'search/search'
+  end
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
 
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:destroy]
     patch 'users/withdraw' => 'users#withdraw', as: 'withdraw'
     delete 'post_comment/destroy/:post_id/:id' => 'post_comments#destroy', as: 'post_comment_destroy'
+    get "search" => "searches#search"
 
   end
 

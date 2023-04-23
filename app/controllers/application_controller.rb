@@ -14,4 +14,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin_or_user!
+    if admin_signed_in? || user_signed_in?
+    else 
+      redirect_to root_path
+    end
+  end
+  
+
 end

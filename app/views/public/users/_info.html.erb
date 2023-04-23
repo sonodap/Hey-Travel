@@ -13,7 +13,7 @@
       <td><%= user.introduction %></td>
     </tr>
     <tr>
-      <% if user.id == current_user.id && user.name != "guestuser" %>
+      <% if user_signed_in? && user.id == current_user.id && user.name != "guestuser" %>
         <td>
           <%= link_to "会員情報を編集する", edit_user_path, class: "btn btn-outline-secondary btn-block" %>
         </td>
