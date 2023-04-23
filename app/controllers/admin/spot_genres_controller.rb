@@ -1,7 +1,7 @@
 class Admin::SpotGenresController < ApplicationController
   def index
     @spot_genre = SpotGenre.new
-    @spot_genres = SpotGenre.includes(:user).where(users: {is_deleted: false})
+    @spot_genres = SpotGenre.all
   end
 
   def create

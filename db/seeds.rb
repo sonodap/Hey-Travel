@@ -10,18 +10,10 @@ Admin.create!(
   password: 'adminn',
   )
 
-# User.create!(
-#   name: '山田',
-#   gender: '男',
-#   image: File.open("./app/assets/images/default.icon.jpeg"),
-#   email: 'user@com',
-#   password: 'travel',
-# )
-
 user = User.create!(
   name: '山田　一郎',
   email: 'user@com',
   password: 'travel'
 )
 
-user.image.attach(io: File.open(Rails.root.join('app/assets/images/default.icon.jpeg')),filename: 'default.icon.jpeg')
+user.image.attach(io: File.open(Rails.root.join('app/assets/images/default.icon.jpg')),filename: 'default.icon.jpg')
