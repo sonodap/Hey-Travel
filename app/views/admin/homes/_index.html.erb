@@ -1,19 +1,28 @@
 <table class='table'>
-  <% posts.each do |post| %>
-    <tr>
-      <td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
-      <td><%= image_tag post.user.get_image(70,70) %></td>
-      <td>
-        <%= link_to admin_user_path(post.user.id) do %>
-          <%= post.user.name %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to admin_posts_show_path(id: post.id) do %>
-          <%= post.title %>
-        <% end %>
-      </td>
-      <td>コメント数:<%= post.post_comments.count %></td>
-    </tr>
-  <% end %>
+  <thead>
+    <th>日付</th>
+    <th></th>
+    <th>名前</th>
+    <th>タイトル</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% posts.each do |post| %>
+      <tr>
+        <td><%= post.created_at.strftime('%Y年%m月%d日') %></td>
+        <td><%= image_tag post.user.get_image(70,70) %></td>
+        <td>
+          <%= link_to admin_user_path(post.user.id) do %>
+            <%= post.user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admin_posts_show_path(id: post.id) do %>
+            <%= post.title %>
+          <% end %>
+        </td>
+        <td>コメント数:<%= post.post_comments.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
