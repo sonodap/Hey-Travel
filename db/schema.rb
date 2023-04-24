@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_id"
-    t.string "title", null: false
     t.integer "spot_genre_id"
+    t.string "title", null: false
   end
 
   create_table "spot_genres", force: :cascade do |t|
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 2023_04_13_091711) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "introduction"
     t.boolean "is_deleted", default: false
-    t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
