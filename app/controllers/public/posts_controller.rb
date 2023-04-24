@@ -47,8 +47,6 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to mypage_path
-  rescue StandardError
-    redirect_to mypage_path
   end
 
   private
