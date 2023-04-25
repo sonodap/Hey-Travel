@@ -1,17 +1,20 @@
 <table class='table'>
   <thead>
-    <tr>
-      <th style="height: 140px"><%= image_tag user.get_image(100,100) %></th>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td><%= user.name %></td>
-    </tr>
-    <tr>
-      <!--これ必要なければ消しても良い-->
-      <td>introduction</td>
-      <td><%= user.introduction %></td>
-    </tr>
+    <% if user.present? %>
+      <tr>
+        <th style="height: 140px"><%= image_tag user.get_image(100,100) %></th>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <!--これ必要なければ消しても良い-->
+        <td>introduction</td>
+        <td><%= user.introduction %></td>
+      </tr>
+    <% end %>
+
     <tr>
       <% if user_signed_in? && user.id == current_user.id && user.name != "guestuser" %>
         <td>
