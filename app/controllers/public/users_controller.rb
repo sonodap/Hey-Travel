@@ -16,7 +16,7 @@ class Public::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
-    @posts = Post.find(favorites)
+    @posts = Kaminari.paginate_array(Post.find(favorites)).page(params[:page])
     @user = current_user
     @spot_genres = SpotGenre.all
   end
@@ -38,8 +38,8 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      # flash[:notice] = "会員情報が更新されました"
-      redirect_to mypage_path, notice: "会員情報が更新されました"
+      flash[:notice] = "会員情報が更新されました"
+      redirect_to mypage_path
     else
       flash[:notice] = "会員情報の更新に失敗しました"
       render :edit
@@ -52,9 +52,8 @@ class Public::UsersController < ApplicationController
   def withdraw
       @user = current_user
       @user.update(is_deleted: true)
-      flash[:notice] = "退会処理が完了しました。ご利用ありがとうございました"
       reset_session
-      redirect_to root_path
+      redirect_to root_path, notice: "退会処理が完了しました。ご利用ありがとうございました"
   end
 
   private

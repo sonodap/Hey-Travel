@@ -9,6 +9,7 @@
         <h2>旅の記録</h2>
         <%= render 'public/posts/travel_post', posts: @posts %>
       </div>
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

@@ -17,7 +17,6 @@ class Admin::UsersController < ApplicationController
   def withdraw
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
-    flash[:notice] = "退会処理が完了しました。"
-    redirect_to admin_users_path
+    redirect_to admin_users_path, notice: "退会処理が完了しました。"
   end
 end

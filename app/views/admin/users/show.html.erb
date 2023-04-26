@@ -46,11 +46,10 @@
                 <td>コメント数:<%= post.post_comments.count %> </td>
               </tr>
             <% end %>
-            <%= paginate @posts %>
           </tbody>
         </table>
       </div>
-
+      <%= paginate @posts %>
     </div>
   </div>
 </div>
