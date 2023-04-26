@@ -1,14 +1,16 @@
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
+      <th></th>
       <th>名前</th>
       <th>タイトル</th>
     </tr>
   </thead>
   <tbody>
-    <h2>検索結果</h2>
+    <h2 class='p-md-4'>検索結果</h2>
     <% @posts.each do |post| %>
       <tr>
+        <td></td>
         <td>
           <% if admin_signed_in? %>
             <%= link_to admin_user_path(id: post.user.id) do %>

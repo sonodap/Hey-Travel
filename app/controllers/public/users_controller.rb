@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
   def mypage
    @user = current_user
-   @posts = current_user.posts.page(params[:page])
+   @posts = current_user.posts.page(params[:page]).order(created_at: :desc)
    @spot_genres = SpotGenre.all
    if params[:spot_genre_id]
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
@@ -23,7 +23,7 @@ class Public::UsersController < ApplicationController
 
   def user_page
    @user = User.find(params[:id])
-   @posts = @user.posts.page(params[:page])
+   @posts = @user.posts.page(params[:page]).order(created_at: :desc)
    @spot_genres = SpotGenre.all
    if params[:spot_genre_id]
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
@@ -64,7 +64,7 @@ class Public::UsersController < ApplicationController
   end
 
   def ensure_guest_user
-    if current_user.name == "guestuser"
+    if current_user.email == "guest@example.com"
       redirect_to mypage_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end

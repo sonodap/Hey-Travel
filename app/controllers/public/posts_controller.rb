@@ -20,12 +20,12 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:user).where(users: {is_deleted: false}).page(params[:page])
+    @posts = Post.includes(:user).where(users: {is_deleted: false}).page(params[:page]).order(created_at: :desc)
     @user = current_user
     @spot_genres = SpotGenre.all
     if params[:spot_genre_id]
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
-     @posts = @spot_genre.posts.includes(:user).where(users: {is_deleted: false}).page(params[:page])
+     @posts = @spot_genre.posts.includes(:user).where(users: {is_deleted: false}).page(params[:page]).order(created_at: :desc)
     end
     if params[:prefectures_genre]
       @posts = @posts.where(prefectures_genre: params[:prefectures_genre])
