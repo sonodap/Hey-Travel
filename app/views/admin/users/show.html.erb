@@ -1,9 +1,9 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-3 affset-md-1 d-flex align-items-center'>
       <%= render 'layouts/genre', spot_genres: @spot_genres %>
     </div>
-    <div class='col-md-8 affset-md-1'>
+    <div class='col-md-8'>
       <div class='row'>
         <table class='table'>
           <thead>
@@ -15,7 +15,6 @@
               <td><%= @user.name %></td>
             </tr>
             <tr>
-              <!--これ必要なければ消しても良い-->
               <td>introduction</td>
               <td><%= @user.introduction %></td>
             </tr>
@@ -47,10 +46,11 @@
                 <td>コメント数:<%= post.post_comments.count %> </td>
               </tr>
             <% end %>
+            <%= paginate @posts %>
           </tbody>
         </table>
       </div>
-      <%= paginate @posts %>
+
     </div>
   </div>
 </div>

@@ -18,6 +18,6 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
     flash[:notice] = "退会処理が完了しました。"
-    redirect_to admin_homes_top_path
+    redirect_to admin_users_path
   end
 end

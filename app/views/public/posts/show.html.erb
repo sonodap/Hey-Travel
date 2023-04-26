@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-6 text-right">
               <% if @post.user == current_user %>
-                <%= link_to "投稿を削除", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+                <%= link_to "投稿を削除", post_path(@post), method: :delete, data: { confirm: '本当に投稿を削除しますか？' }, class: "btn btn-sm btn-danger"%>
               <% end %>
             </div>
           </div>
@@ -63,18 +63,15 @@
           </div>
           <% if post_comment.user == current_user %>
             <div class="card-footer text-right">
-              <%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
+              <%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, data: { confirm: '本当にコメントを削除しますか？' }, class: "btn btn-sm btn-danger" %>
             </div>
           <% end %>
         </div>
       <% end %>
 
-
-
-
       <div class='row pt-md-3'>
         <div class='col-12 col-md-9 mx-auto'>
-        <% if user_signed_in? && @user.id == current_user.id && @user.name != "guestuser" %>
+        <% if user_signed_in? && current_user.name != "guestuser" %>
           <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post), method: :post do |f| %>
             <%= f.text_area :post_comment, rows: '3', class: 'form-control' %>
 

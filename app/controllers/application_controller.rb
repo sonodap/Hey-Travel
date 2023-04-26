@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 
   def ensure_guest_user
     if current_user.name == "guestuser"
-      redirect_to mypage_path, notice: 'ゲストユーザーでは操作できません'
+      flash[:notice] = 'ゲストユーザーでは操作できません'
+      redirect_to mypage_path
     end
   end
 

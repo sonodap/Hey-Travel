@@ -14,9 +14,11 @@
         <td>
           <%= link_to post.title, posts_travel_post_path(post.id) %>
         </td>
-        <td id="favorite_buttons_<%= post.id %>">
-          <%= render "public/favorites/favorite", post: post %>
-        </td>
+        <% if user_signed_in? %>
+          <td id="favorite_buttons_<%= post.id %>">
+            <%= render "public/favorites/favorite", post: post %>
+          </td>
+        <% end %>
         <td>コメント数:<%= post.post_comments.count %></td>
       </tr>
     <% end %>

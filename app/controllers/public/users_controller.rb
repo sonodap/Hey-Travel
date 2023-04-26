@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
   def mypage
    @user = current_user
-   @posts = current_user.posts
+   @posts = current_user.posts.page(params[:page])
    @spot_genres = SpotGenre.all
    if params[:spot_genre_id]
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
@@ -23,7 +23,7 @@ class Public::UsersController < ApplicationController
 
   def user_page
    @user = User.find(params[:id])
-   @posts = @user.posts
+   @posts = @user.posts.page(params[:page])
    @spot_genres = SpotGenre.all
    if params[:spot_genre_id]
      @spot_genre = SpotGenre.find(params[:spot_genre_id])
