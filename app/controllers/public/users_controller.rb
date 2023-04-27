@@ -15,8 +15,8 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
-    @posts = Kaminari.paginate_array(Post.find(favorites)).page(params[:page])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @posts = Kaminari.paginate_array(Post.where(id: favorites).order(created_at: :desc)).page(params[:page])
     @user = current_user
     @spot_genres = SpotGenre.all
   end
