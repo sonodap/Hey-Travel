@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'search/search'
-  end
+  
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
 

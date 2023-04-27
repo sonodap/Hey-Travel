@@ -2,6 +2,9 @@
   <div class='row'>
     <div class='col-md-3 mt-4'>
       <%= render 'layouts/genre', spot_genres: @spot_genres %>
+      <div class="mt-5">
+      <%= link_to "戻る", :back, class: 'btn btn-danger' %>
+      </div>
     </div>
     <div class='col-md-9'>
       <div class='row py-md-3 pl-md-4'>
