@@ -53,7 +53,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    # あとでジャンルも追加
     params.require(:post).permit(:title, :image, :post_text, :prefectures_genre, :spot_genre_id)
   end
 
