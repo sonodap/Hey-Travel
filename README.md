@@ -31,8 +31,9 @@
 
 ## 設計書
 ER図<br>
-https://app.diagrams.net/#G1hlejnY1uohW0D6XSpuamT01coD_XOBXu　<br>
-画面遷移図<br> https://app.diagrams.net/title=%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC&client=1#G1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb<br>
+https://drive.google.com/file/d/1hlejnY1uohW0D6XSpuamT01coD_XOBXu/view?usp=sharing　<br>
+画面遷移図<br> 
+https://drive.google.com/file/d/1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb/view?usp=sharing<br>
 テーブル提議書<br>
 https://docs.google.com/spreadsheets/d/1QMH3rPskeP4shkN1mK6H14UuWKyQ52y8jR_Fcw9vFtQ/edit#gid=0　<br>
 アプリケーション詳細設計書<br>
