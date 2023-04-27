@@ -32,10 +32,9 @@
 ## 設計書
 ER図<br>
 https://drive.google.com/file/d/1hlejnY1uohW0D6XSpuamT01coD_XOBXu/view?usp=sharing　<br>
-画面遷移図<br>
-会員側<br> 
+画面遷移図  会員側<br> 
 https://drive.google.com/file/d/1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb/view?usp=sharing<br>
-管理者側<br>
+画面遷移図  管理者側<br>
 https://drive.google.com/file/d/1_6bYIx2FFyfIwyBk1MGHxQLhJAYfqaEk/view?usp=sharing<br>
 テーブル提議書<br>
 https://docs.google.com/spreadsheets/d/1QMH3rPskeP4shkN1mK6H14UuWKyQ52y8jR_Fcw9vFtQ/edit#gid=0　<br>
