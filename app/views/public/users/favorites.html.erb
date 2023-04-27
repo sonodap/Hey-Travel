@@ -9,7 +9,7 @@
         <h2>いいねした投稿</h2>
         <%= render 'public/posts/index', posts: @posts %>
       </div>
+      <%= paginate @posts %>
     </div>
-    <%= paginate @posts %>
   </div>
 </div>
