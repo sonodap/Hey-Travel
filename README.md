@@ -4,7 +4,7 @@
 ## サイト概要
 
 ### サイトテーマ
-投稿された旅行先の内容が「どの都道府県のどの場所なのか」がピンポイントに絞れて検索できるコミュニティサイトとなっております
+投稿された旅行先の内容が「どの都道府県のどの場所なのか」がピンポイントに絞れて検索できるコミュニティサイトとなっております。
 
 
 ### テーマを選んだ理由
@@ -30,7 +30,7 @@
 
 ## 設計書
 ER図
-https://app.diagrams.net/#G1hlejnY1uohW0D6XSpuamT01coD_XOBXu
+https://app.diagrams.net/#G1hlejnY1uohW0D6XSpuamT01coD_XOBXu　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 画面遷移図　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 https://app.diagrams.net/?title=%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC&client=1#G1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 テーブル提議書　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
@@ -46,6 +46,6 @@ https://docs.google.com/spreadsheets/d/1tIzbOuGEJGYjxxMGCswwYD_bDs0OBY4HenzepBjB
 - IDE：Cloud9
 
 ## 使用素材
-- https://publicdomainq.net/
+- 著作権フリー画像素材集　https://publicdomainq.net/
 
 
