@@ -1,5 +1,6 @@
 # 　Hey-Travel
-![スクリーンショット 2023-04-27 21 34 54](https://user-images.githubusercontent.com/123183278/234863648-13ebd203-7782-48f0-999e-c3dd86e5db49.png)
+![スクリーンショット 2023-04-27 21 55 38](https://user-images.githubusercontent.com/123183278/234868382-c2d75bd4-21ac-4a81-8787-bfb13b430d31.png)
+
 
 ## サイト概要
 
