@@ -4,6 +4,6 @@
     <% end %>
   <% else %>
     <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
-      ♥<%= post.favorites.count %> いいね
+      ♡<%= post.favorites.count %> いいね
     <% end %>
   <% end %>
