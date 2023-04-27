@@ -20,24 +20,17 @@
 
 
 ### 主な利用シーン
-〜旅行を計画するとき〜                                                                                                                                      
-旅行の計画を作成する際にコミュニティサイトで地域、観光地を検索し事前に情報を得ることで計画的な日程作成が可能になります。
+〜旅行を計画するとき〜 :旅行の計画を作成する際にコミュニティサイトで地域、観光地を検索し事前に情報を得ることで計画的な日程作成が可能になります。
 
-〜過去の旅行を振り返る時〜                                               　　　　                                                                                   
-今回は行った旅行先を投稿し他の人に共有するだけでなく、個人として過去の旅行を振り返り次回の旅行をより良いものにしてもらえるようマイページにて確認することが可能。
+〜過去の旅行を振り返る時〜 :今回は行った旅行先を投稿し他の人に共有するだけでなく、個人として過去の旅行を振り返り次回の旅行をより良いものにしてもらえるようマイページにて確認することが可能。
 
-〜各地域にどんな観光地があるか知りたい時〜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-旅行を計画していなくても情報だけを知りたい人が検索機能を使用し知りたい情報だけを知ることが可能。
+〜各地域にどんな観光地があるか知りたい時〜 :旅行を計画していなくても情報だけを知りたい人が検索機能を使用し知りたい情報だけを知ることが可能。
 
 ## 設計書
-ER図                                                                                                                           
-https://app.diagrams.net/#G1hlejnY1uohW0D6XSpuamT01coD_XOBXu　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-画面遷移図　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-https://app.diagrams.net/?title=%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC&client=1#G1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-テーブル提議書　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-https://docs.google.com/spreadsheets/d/1QMH3rPskeP4shkN1mK6H14UuWKyQ52y8jR_Fcw9vFtQ/edit#gid=0　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-アプリケーション詳細設計書　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-https://docs.google.com/spreadsheets/d/1tIzbOuGEJGYjxxMGCswwYD_bDs0OBY4HenzepBjBJCU/edit#gid=549108681
+ER図 https://app.diagrams.net/#G1hlejnY1uohW0D6XSpuamT01coD_XOBXu　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+画面遷移図 https://app.diagrams.net/title=%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%94%E3%83%BC&client=1#G1Iw2i9IoGyNpVNDn8WCJWOQbyriGQEmjb　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+テーブル提議書 https://docs.google.com/spreadsheets/d/1QMH3rPskeP4shkN1mK6H14UuWKyQ52y8jR_Fcw9vFtQ/edit#gid=0　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/1tIzbOuGEJGYjxxMGCswwYD_bDs0OBY4HenzepBjBJCU/edit#gid=549108681　
 
 ## 開発環境 
 -  OS：Linux(CentOS)
